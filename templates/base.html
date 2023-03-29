@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            $(document).ready(function(){
+                $("#sumbtn").click(function()
+                {
+                    var book_name = $('input[name="book_name"]').val()
+                    var langugae = $("#languages").find(":selected").text();
+                    var CSRF_tolen = $('input[name="csrfmiddlewaretoken"]').val()   ;
+                    // alert(`${book_name} ${langugae} ${CSRF_tolen}`)
+                    $.post('/',{
+                        b_name:book_name,
+                        lang:langugae,
+                        csrfmiddlewaretoken:CSRF_tolen
+                    })  ;                  
+                });
+            });
+        </script>
+        <title>Book Summarizer</title>
+    </head>
+    <body>
+        <div class="title-cont center">
+            <i class="fa-solid fa-book"></i>
+            <h1 class='header-title'> BOOK SUMMARIZER</h1>
+            <i class="fa-solid fa-book"></i>
+        </div>
+ 
+        <div class="content-cont center">
+            <div class="content">
+                <h1>We Summarize Books For you</h1>
+                <div class="controls-cont center">
+                    <form action="/" method="POST">
+                        {% csrf_token %}
+                        <div class="cont-no-btn">
+                            <label class="label-title">BOOK NAME:</label>
+                            <input class="booknamebox" type="text" name="book_name" placeholder="Type Here">
+                            <select class="langes" name="languages" id="languages">
+                                <option value="English">English</option>
+                                <option value="Arabic" >Arabic</option>
+                                <option value="German" >German</option>
+                                <option value="Frensh" >Frensh</option>
+                                <option value="Spanish">Spanish</option>
+                            </select>
+                        </div>
+                        <div class="sum-btn-cont center">
+                            <input class="sum-btn" type="submit" value="Summarize">
+                        </div>
+                    </form>
+                <!-- end of controls -->
+                </div>
+                <br>
+ 
+                <div class="resume-cont  ">
+                    {% if status == "OK" %}
+                        <div class="img-cont center">
+                            <img class="bookimg" src="{{book.book_img}}">
+                        </div>
+                        <h2 class="resume-text">{{book.book_resume}}</h2>
+                    {% endif %}
+                </div>
+                {% comment %} <div class="coments">
+                    <h1>The COmments</h1>
+                </div> {% endcomment %}
+            </div>
+        </div>
+        
+    </body>
+</html>

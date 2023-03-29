@@ -1,0 +1,118 @@
+@font-face {
+    font-family: sbold;
+    src: url('../fonts/sBold.ttf');
+}
+@font-face {
+    font-family: sregu;
+    src: url('../fonts/sRegular.ttf');
+}
+:root{
+    --black:#282c34;
+    --white:white;
+}
+*{
+    /* background-color: #282c34; */
+    box-sizing: border-box;
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: var(--black); 
+}
+.title-cont{
+    background-color: var(--white);
+ 
+}
+.header-title{
+    font-family:sbold;
+    color: var(--black);
+    background-color: transparent;
+    font-size: 4em;
+    text-align:center;
+    padding: 0.5em 1em; 
+}
+.title-cont > i{
+    font-size: 3em;
+    color:var(--black);
+    background-color: transparent;
+ 
+}
+ 
+ 
+.content-cont > .content{
+    width: 55%;
+    background-color: var(--white);
+    border-radius: 0px 0px 1em 1em;
+}
+.content > h1{
+    margin: 2em;
+    font-size: 2.5em;
+    color: var(--black);
+    text-align: center;
+    text-decoration: underline 6px;
+    font-family: sregu;
+}
+ 
+.controls-cont > form  {
+    width: 90%;
+    
+}
+.label-title{
+    font-size: 2em;
+    font-weight: bolder;
+}
+.booknamebox
+{
+    font-size: 1.5em;
+  
+    border: none;
+    padding: 0.5em 1em;
+    border-bottom: 3px solid var(--black);
+    width: 65%;
+}
+.langes{
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid var(--black);
+    color:var(--black);
+    font-size: 1em;
+    font-weight: bolder;
+    padding: 1em 2em;
+    cursor: pointer;
+}
+ 
+.sum-btn-cont > .sum-btn
+{
+    font-size: 1.5em;
+    background-color: transparent;
+    color:var(--black);
+    border:none;
+    border-bottom: 5px solid var(--black);
+   
+    padding: 1em 2em;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.sum-btn-cont > .sum-btn:hover{
+    
+    border-radius: 15px;
+    font-weight: bolder;
+}
+ 
+.bookimg{
+    border-radius:2em;
+    max-width: 25%;
+    width: auto;
+    height: auto;
+     
+}
+.resume-text{
+    padding: 1em 1em;
+}
+/* taildwind css */
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
