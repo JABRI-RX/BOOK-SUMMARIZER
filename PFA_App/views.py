@@ -2,7 +2,8 @@ from django.shortcuts import render
  
 import re
 import openai
-openai.api_key = "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"
+#this is key doesn't F work sont scarp it 
+openai.api_key = "sk-PUT YOUR OWN BLODY KEY INVISIBLE MGS5"
 
 
 # Create your views here.
